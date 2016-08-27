@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 450440}
   - 212: {fileID: 21229084}
+  - 95: {fileID: 9501330}
   m_Layer: 0
   m_Name: ballistaboat-trans
   m_TagString: Untagged
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7701283, y: -0.48088473, z: 0}
+  m_LocalPosition: {x: -4.5729513, y: -0.2653451, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -103,6 +104,23 @@ PolygonCollider2D:
       - {x: -1.747508, y: 0.009805679}
       - {x: -1.6767564, y: 0.30702928}
       - {x: -1.4480667, y: 0.45371622}
+--- !u!95 &9501330
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151250}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fa93b7780a6e21a49a176e82eb346b6e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11425326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +160,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8dabc4169067d2e409fa343cc556e64d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 720859280e09d924cb9c4e3634976941, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
