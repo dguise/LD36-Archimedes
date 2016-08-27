@@ -62,7 +62,6 @@ namespace Assets.Scripts
             }
 
             Debug.DrawLine(sunPos, mirrorPos, Color.green);
-            //Debug.Log(string.Format("SunPos: {0} - MirrorPos: {1} - Hit: {2} - ", sunPos, mirrorPos, mirrorHit.point));
         }
 
 
