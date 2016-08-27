@@ -30,7 +30,7 @@ namespace Assets.Scripts
             for (int i = 0; i < SpawnBoats; i++)
             {
                 var rand_sp = Random.Range(0, _spawnPoints.Length);
-                Vector3 randYModifier = new Vector3(0, Random.Range(-10, 10), 0);
+                Vector3 randYModifier = new Vector3(0, Random.Range(-5, 5), 0);
                 Instantiate(Boat, _spawnPoints[rand_sp].transform.position + randYModifier, Boat.transform.rotation);
                 
                 yield return new WaitForSeconds(Random.Range(1, 2));

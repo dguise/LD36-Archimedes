@@ -41,7 +41,6 @@ namespace Assets.Scripts
             {
                 angle *= -1;
             }
-            Debug.Log(angle);
             angle -= 180;
 
             angle += (mirrorAngle.eulerAngles.z - 270) * 2;
