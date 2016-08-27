@@ -34,7 +34,7 @@ namespace Assets.Scripts
                 Debug.DrawRay(mirrorHit.point, mirrorHit.normal*100f);
             }
 
-            Debug.DrawLine(sunPos, mirrorHit.point, Color.green);
+            Debug.DrawLine(sunPos, mirrorPos, Color.green);
             Debug.Log(string.Format("SunPos: {0} - MirrorPos: {1} - Hit: {2} - ", sunPos, mirrorPos, mirrorHit.point));
         }
 

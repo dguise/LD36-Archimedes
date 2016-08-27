@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402250}
   - 58: {fileID: 5821790}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: ControlArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 462020}
   - 212: {fileID: 21204858}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165462}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: -6.64, y: 1.86, z: -1}
   m_LocalScale: {x: 0.9842393, y: 0.9133169, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_Children:
