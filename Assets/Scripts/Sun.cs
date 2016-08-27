@@ -18,15 +18,17 @@ namespace Assets.Scripts
             Vector2 sunPos = gameObject.transform.position;        
             Vector2 mirrorPos = mirror.transform.position;
 
+
             RaycastHit mirrorHit;
-            Physics.Raycast(sunPos, mirrorPos, out mirrorHit, 1 << LayerMask.NameToLayer("Mirror"));
+            Vector3 direction = mirrorPos - sunPos;
+            Physics.Raycast(sunPos, direction, out mirrorHit, 1 << LayerMask.NameToLayer("Mirror"));
 
             if (mirrorHit.collider)
             {
                 RaycastHit boatHit;
                 Physics.Raycast(mirrorHit.point, mirrorHit.normal*100f, out boatHit, 1 << LayerMask.NameToLayer("Boat"));
 
-                if (boatHit.collider.tag == "Boat")
+                if (boatHit.collider != null && boatHit.collider.tag == "Boat")
                 {
                     Debug.Log("boat 1 beam");
                 }
