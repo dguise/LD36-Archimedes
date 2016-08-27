@@ -44,7 +44,7 @@ public class Boat : MonoBehaviour
     void Hurt(float dmg)
     {
         Hp -= dmg;
-
+        Debug.Log("Ouch!" + Hp);
         if (Hp <= 0)
         {
             //TODO: play death anim

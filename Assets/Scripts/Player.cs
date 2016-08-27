@@ -42,7 +42,7 @@ namespace Assets.Scripts
                     Vector3 rot = _currMirror.transform.eulerAngles;
                     var rot_y = Input.GetAxis("Vertical");
 
-                    _currMirror.transform.eulerAngles = new Vector3(0, 0, rot.z + rot_y);
+                    _currMirror.transform.eulerAngles = new Vector3(0, 0, rot.z + -rot_y);
                 }
             }
             

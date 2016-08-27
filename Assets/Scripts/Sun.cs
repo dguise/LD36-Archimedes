@@ -7,7 +7,7 @@ namespace Assets.Scripts
 
         private GameObject[] mirrors;
         public float Speed = 1f;
-        public float Range = 10;
+        public float Range = 100;
         // Use this for initialization
         void Start () {
             mirrors = GameObject.FindGameObjectsWithTag("Mirror");
@@ -49,12 +49,13 @@ namespace Assets.Scripts
 
             if (mirrorHit.collider)
             {
-                 RaycastHit boatHit;
+                RaycastHit boatHit;
                 Physics.Raycast(mirrorHit.point, reflectionDirection, out boatHit, Range, 1 << LayerMask.NameToLayer("Boat"));
-
-                if (boatHit.collider != null && boatHit.collider.tag == "Boat")
+                
+                if (boatHit.collider != null)
                 {
-                    Debug.Log("boat 1 beam");
+                    Debug.Log(boatHit.collider.tag);
+                    boatHit.collider.gameObject.SendMessage("Hurt", 10);
                 }
 
                 Debug.DrawRay(mirrorHit.point, reflectionDirection * Range);
