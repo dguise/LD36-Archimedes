@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Configuration;
 using UnityStandardAssets.Utility;
 
 public class Boat : MonoBehaviour
@@ -14,7 +15,7 @@ public class Boat : MonoBehaviour
     private bool show_bar = false;
     public float shoot_delay = 3;
     private float shoot_delay_timer = 0;
-
+    private bool shouldShoot = false;
     private float _cooldownDmg = 0.2f;
     private float _timeStamp = 0;
 
@@ -33,7 +34,7 @@ public class Boat : MonoBehaviour
     void FixedUpdate()
     {
         if (shoot_delay_timer > 0) shoot_delay_timer -= Time.fixedDeltaTime;
-        if(!_sailForward && shoot_delay_timer<=0)
+        if(!_sailForward && shoot_delay_timer<=0 && shouldShoot)
         {
             Instantiate(arrow, transform.position, Quaternion.Euler(0,0,-90));
             shoot_delay_timer = shoot_delay;
@@ -51,7 +52,6 @@ public class Boat : MonoBehaviour
 	    }
 	    else
 	    {
-	        //shoot
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z * 0.5f, transform.rotation.w);
@@ -71,6 +71,7 @@ public class Boat : MonoBehaviour
         if (col.tag == "Land")
         {
             _sailForward = false;
+            shouldShoot = true;
         }
     }
 

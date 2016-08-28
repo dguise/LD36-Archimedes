@@ -9,9 +9,6 @@ namespace Assets.Scripts
         private GameObject[] mirrors;
         public float Speed = 1f;
         public float Range = 100;
-        public GameObject mir1;
-        public GameObject mir2;
-        public GameObject mir3;
 
         private float _timeStamp = 0f;
         private float _cooldownDmg = 2f;
@@ -68,11 +65,7 @@ namespace Assets.Scripts
                 
                 if (boatHit.collider != null && boatHit.collider.tag == "Boat")
                 {
-                    Debug.Log("boathit: " +boatHit.distance);
-                    Debug.Log("range: " + range);
-                    Debug.Log(20 * (boatHit.distance / range));
                     boatHit.collider.gameObject.SendMessage("Hurt", 20 * (boatHit.distance / range));
-                    Debug.Log("Boathit");
                 }
 
                 Debug.DrawRay(mirrorHit.point, reflectionDirection * range);
