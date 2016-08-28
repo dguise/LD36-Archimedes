@@ -93,8 +93,7 @@ public class Boat : MonoBehaviour
 
             Hp = 0;
             _sailForward = false;
-            //TODO: play death anim
-            //Destroy(gameObject, 1);
+            shouldShoot = false;
         }
 
         //update bar
