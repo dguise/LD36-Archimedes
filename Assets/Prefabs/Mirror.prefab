@@ -127,7 +127,7 @@ GameObject:
   - 58: {fileID: 58000013073857296}
   m_Layer: 2
   m_Name: ControlArea
-  m_TagString: Mirror
+  m_TagString: MirrorControlArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1000010912665000}
   canvas_bar: {fileID: 1000010036125648}
-  range: 100
+  m_range: 1
 --- !u!114 &114000012796607764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -465,7 +465,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0.14999998, y: -0.00999999}
-  m_SizeDelta: {x: 3.27, y: 0.66}
+  m_SizeDelta: {x: 3.27, y: 0.25}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224000011228879098
 RectTransform:
@@ -483,7 +483,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.02, y: -0.01}
-  m_SizeDelta: {x: 3.27, y: 0.66}
+  m_SizeDelta: {x: 3.27, y: 0.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000011917934090
 RectTransform:
@@ -522,5 +522,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000000055879354, y: -0.01}
-  m_SizeDelta: {x: 3.53, y: 1.02}
+  m_SizeDelta: {x: 3.35, y: 0.37}
   m_Pivot: {x: 0.5, y: 0.5}

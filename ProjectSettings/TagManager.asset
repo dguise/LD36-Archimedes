@@ -9,6 +9,7 @@ TagManager:
   - SpawnPoint
   - Land
   - Arrow
+  - MirrorControlArea
   layers:
   - Default
   - TransparentFX

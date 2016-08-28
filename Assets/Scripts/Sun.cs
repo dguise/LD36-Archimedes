@@ -27,10 +27,12 @@ namespace Assets.Scripts
         {
             foreach(GameObject mirror in mirrors)
             {
-                mirrorscript mirrScript = mirror.GetComponent<mirrorscript>();
-                //float range = mirror.GetComponent<mirrorscript>().range;
-                float range = mirrScript.m_range;
-                RaycastBeam(gameObject.transform.position, mirror.transform.position, mirror.transform.rotation, range);
+                if (mirror != null)
+                {
+                    mirrorscript mirrScript = mirror.GetComponent<mirrorscript>();
+                    float range = mirrScript.m_range;
+                    RaycastBeam(gameObject.transform.position, mirror.transform.position, mirror.transform.rotation, range);
+                }
                 
             }
             transform.position = transform.position + Vector3.down * Time.deltaTime * Speed;
@@ -66,8 +68,10 @@ namespace Assets.Scripts
                 
                 if (boatHit.collider != null && boatHit.collider.tag == "Boat")
                 {
-                    
-                    boatHit.collider.gameObject.SendMessage("Hurt", 10 - boatHit.distance);
+                    Debug.Log("boathit: " +boatHit.distance);
+                    Debug.Log("range: " + range);
+                    Debug.Log(20 * (boatHit.distance / range));
+                    boatHit.collider.gameObject.SendMessage("Hurt", 20 * (boatHit.distance / range));
                     Debug.Log("Boathit");
                 }
 

@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\MirrorControl.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Sun.cs" />
+     <Compile Include="Assets\Scripts\arrowscript.cs" />
      <Compile Include="Assets\barscript.cs" />
      <Compile Include="Assets\mirrorscript.cs" />
      <Compile Include="Assets\musicscript.cs" />

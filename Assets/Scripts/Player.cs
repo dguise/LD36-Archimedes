@@ -20,7 +20,6 @@ namespace Assets.Scripts
         {
             _rb = gameObject.GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            LineRenderer line1 = new LineRenderer();
         }
 
         void Update()
@@ -51,7 +50,7 @@ namespace Assets.Scripts
                     Vector3 rot = _currMirror.transform.eulerAngles;
                     var rot_y = Input.GetAxis("Vertical");
 
-                    _currMirror.transform.eulerAngles = new Vector3(0, 0, rot.z + rot_y*0.5f);
+                    _currMirror.transform.eulerAngles = new Vector3(0, 0, rot.z + rot_y * 0.5f);
 
                     mirrorscript mirrScript = _currMirror.GetComponent<mirrorscript>();
 
@@ -94,7 +93,7 @@ namespace Assets.Scripts
 
         void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.tag == "Mirror")
+            if (col.tag == "MirrorControlArea")
             {
                 _currMirror = col.transform.parent.gameObject;
                 _mirrorArea = true;
@@ -103,7 +102,7 @@ namespace Assets.Scripts
 
         void OnTriggerExit2D(Collider2D col)
         {
-            if (col.tag == "Mirror")
+            if (col.tag == "MirrorControlArea")
             {
                 _mirrorArea = false;
             }
