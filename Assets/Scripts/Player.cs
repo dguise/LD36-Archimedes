@@ -13,6 +13,8 @@ namespace Assets.Scripts
         private GameObject _currMirror;
         private bool _lockedToMirror = false;
 
+        public float Speed;
+        
         void Start()
         {
 
@@ -20,8 +22,8 @@ namespace Assets.Scripts
 
         void Update()
         {
-            var x = Input.GetAxis("Horizontal")*Time.deltaTime*10.0f;
-            var y = Input.GetAxis("Vertical")*Time.deltaTime*10.0f;
+            var x = Input.GetAxis("Horizontal")*Time.deltaTime * Speed;
+            var y = Input.GetAxis("Vertical")*Time.deltaTime * Speed;
 
             if (_mirrorArea)
             {
