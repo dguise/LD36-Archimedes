@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityStandardAssets.Utility;
 
 public class Boat : MonoBehaviour
 {
-    public float Speed = 5f;
-    public float Hp = 10f;
+    private float Speed = 1f;
+    private float Hp = 100f;
+
+    private float _cooldownDmg = 0.5f;
+    private float _timeStamp = 0;
 
     private bool _sailForward = true;
 
 	// Use this for initialization
 	void Start () 
     {
-	
+	    
 	}
 	
 	// Update is called once per frame
@@ -44,9 +48,10 @@ public class Boat : MonoBehaviour
     void Hurt(float dmg)
     {
         Hp -= dmg;
-        Debug.Log("Ouch!" + Hp);
+        Debug.Log("Hp: " + Hp);
         if (Hp <= 0)
-        {
+        {    
+            _sailForward = false;
             //TODO: play death anim
             Destroy(gameObject, 1);
         }

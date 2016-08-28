@@ -12,12 +12,12 @@ namespace Assets.Scripts
         private bool _mirrorArea = false;
         private GameObject _currMirror;
         private bool _lockedToMirror = false;
-
+        private Rigidbody2D _rb;
         public float Speed;
         
         void Start()
         {
-
+            _rb = gameObject.GetComponent<Rigidbody2D>();
         }
 
         void Update()
@@ -50,7 +50,7 @@ namespace Assets.Scripts
             
             if (!_lockedToMirror)
             {
-                transform.Translate(x, y, 0);
+                _rb.velocity = new Vector2(x, y);
             }
         }
 

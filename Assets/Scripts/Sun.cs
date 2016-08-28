@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -8,6 +9,11 @@ namespace Assets.Scripts
         private GameObject[] mirrors;
         public float Speed = 1f;
         public float Range = 100;
+
+        private float _timeStamp = 0f;
+        private float _cooldownDmg = 2f;
+
+
         // Use this for initialization
         void Start () {
             mirrors = GameObject.FindGameObjectsWithTag("Mirror");
@@ -54,8 +60,13 @@ namespace Assets.Scripts
                 
                 if (boatHit.collider != null)
                 {
-                    Debug.Log(boatHit.collider.tag);
-                    boatHit.collider.gameObject.SendMessage("Hurt", 10);
+                    if (_timeStamp <= Time.time)
+                    {
+                        //todo: does not work, this doesnt allow additive beams. Do this in boat.
+                        _timeStamp = Time.time + _cooldownDmg;
+                        boatHit.collider.gameObject.SendMessage("Hurt", 10);
+                        Debug.Log("wat");
+                    }
                 }
 
                 Debug.DrawRay(mirrorHit.point, reflectionDirection * Range);
