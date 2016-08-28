@@ -8,6 +8,7 @@ TagManager:
   - Boat
   - SpawnPoint
   - Land
+  - Arrow
   layers:
   - Default
   - TransparentFX
