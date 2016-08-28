@@ -9,6 +9,7 @@ public class mirrorscript : MonoBehaviour {
     public GameObject canvas_bar;
     private bool show_bar = false;
     private bool same_cycle = false;
+    public float m_range = 1;
 
     // Use this for initialization
     void Start ()

@@ -9,6 +9,9 @@ namespace Assets.Scripts
         private GameObject[] mirrors;
         public float Speed = 1f;
         public float Range = 100;
+        public GameObject mir1;
+        public GameObject mir2;
+        public GameObject mir3;
 
         private float _timeStamp = 0f;
         private float _cooldownDmg = 2f;
@@ -24,14 +27,17 @@ namespace Assets.Scripts
         {
             foreach(GameObject mirror in mirrors)
             {
-                RaycastBeam(gameObject.transform.position, mirror.transform.position, mirror.transform.rotation);
+                mirrorscript mirrScript = mirror.GetComponent<mirrorscript>();
+                //float range = mirror.GetComponent<mirrorscript>().range;
+                float range = mirrScript.m_range;
+                RaycastBeam(gameObject.transform.position, mirror.transform.position, mirror.transform.rotation, range);
                 
             }
             transform.position = transform.position + Vector3.down * Time.deltaTime * Speed;
 
         }
 
-        void RaycastBeam(Vector2 sunPos, Vector2 mirrorPos, Quaternion mirrorAngle)
+        void RaycastBeam(Vector2 sunPos, Vector2 mirrorPos, Quaternion mirrorAngle, float range)
         {
             
             Vector3 direction = mirrorPos - sunPos;
@@ -56,7 +62,7 @@ namespace Assets.Scripts
             if (mirrorHit.collider)
             {
                 
-                RaycastHit2D boatHit = Physics2D.Raycast(mirrorHit.point, reflectionDirection, Range, 1 << LayerMask.NameToLayer("Boat"));
+                RaycastHit2D boatHit = Physics2D.Raycast(mirrorHit.point, reflectionDirection, range, 1 << LayerMask.NameToLayer("Boat"));
                 
                 if (boatHit.collider != null && boatHit.collider.tag == "Boat")
                 {
@@ -65,7 +71,7 @@ namespace Assets.Scripts
                     Debug.Log("Boathit");
                 }
 
-                Debug.DrawRay(mirrorHit.point, reflectionDirection * Range);
+                Debug.DrawRay(mirrorHit.point, reflectionDirection * range);
             }
 
             Debug.DrawLine(sunPos, mirrorPos, Color.green);

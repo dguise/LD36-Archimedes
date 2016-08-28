@@ -52,6 +52,17 @@ namespace Assets.Scripts
                     var rot_y = Input.GetAxis("Vertical");
 
                     _currMirror.transform.eulerAngles = new Vector3(0, 0, rot.z + rot_y*0.5f);
+
+                    mirrorscript mirrScript = _currMirror.GetComponent<mirrorscript>();
+
+                    if (Input.GetKeyDown(KeyCode.A))
+                    {
+                        mirrScript.m_range += 1;
+                    }
+                    if (Input.GetKeyDown((KeyCode.D)))
+                    {
+                        mirrScript.m_range -= 1;
+                    }
                 }
             }
             
