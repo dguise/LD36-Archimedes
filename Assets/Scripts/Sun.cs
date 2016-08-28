@@ -60,13 +60,8 @@ namespace Assets.Scripts
                 
                 if (boatHit.collider != null)
                 {
-                    if (_timeStamp <= Time.time)
-                    {
-                        //todo: does not work, this doesnt allow additive beams. Do this in boat.
-                        _timeStamp = Time.time + _cooldownDmg;
-                        boatHit.collider.gameObject.SendMessage("Hurt", 10);
-                        Debug.Log("wat");
-                    }
+                    boatHit.collider.gameObject.SendMessage("Hurt", 10);
+                    Debug.Log("Boathit");
                 }
 
                 Debug.DrawRay(mirrorHit.point, reflectionDirection * Range);

@@ -10,7 +10,7 @@ public class Boat : MonoBehaviour
     private float Hp_start = 100f;
     public GameObject healthbar;
 
-    private float _cooldownDmg = 0.5f;
+    private float _cooldownDmg = 0.2f;
     private float _timeStamp = 0;
 
     private bool _sailForward = true;
@@ -56,10 +56,14 @@ public class Boat : MonoBehaviour
 
     void Hurt(float dmg)
     {
+        if (_timeStamp >= Time.time)
+        {
+            return;
+        }
+        _timeStamp = Time.time + _cooldownDmg;
         if (Hp <= 0) return;
 
         Hp -= dmg;
-        Debug.Log("Hp: " + Hp);
 
         if (Hp <= 0)
         {
