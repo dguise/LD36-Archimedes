@@ -58,9 +58,10 @@ namespace Assets.Scripts
                 
                 RaycastHit2D boatHit = Physics2D.Raycast(mirrorHit.point, reflectionDirection, Range, 1 << LayerMask.NameToLayer("Boat"));
                 
-                if (boatHit.collider != null)
+                if (boatHit.collider != null && boatHit.collider.tag == "Boat")
                 {
-                    boatHit.collider.gameObject.SendMessage("Hurt", 10);
+                    
+                    boatHit.collider.gameObject.SendMessage("Hurt", 10 - boatHit.distance);
                     Debug.Log("Boathit");
                 }
 
@@ -73,4 +74,3 @@ namespace Assets.Scripts
 
     }
 }
-//var angle = Vector2.Angle(sunPos, mirrorPos);
