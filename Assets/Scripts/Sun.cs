@@ -27,10 +27,10 @@ namespace Assets.Scripts
 
         void RaycastBeam(Vector2 sunPos, Vector2 mirrorPos, Quaternion mirrorAngle)
         {
-            RaycastHit mirrorHit;
-            Vector3 direction = mirrorPos - sunPos;
             
-            Physics.Raycast(sunPos, direction, out mirrorHit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Mirror"));
+            Vector3 direction = mirrorPos - sunPos;
+
+            RaycastHit2D mirrorHit =  Physics2D.Raycast(sunPos, direction, Mathf.Infinity, 1 << LayerMask.NameToLayer("Mirror"));
          
 
             float normX = direction.normalized.x;
@@ -49,8 +49,8 @@ namespace Assets.Scripts
 
             if (mirrorHit.collider)
             {
-                RaycastHit boatHit;
-                Physics.Raycast(mirrorHit.point, reflectionDirection, out boatHit, Range, 1 << LayerMask.NameToLayer("Boat"));
+                
+                RaycastHit2D boatHit = Physics2D.Raycast(mirrorHit.point, reflectionDirection, Range, 1 << LayerMask.NameToLayer("Boat"));
                 
                 if (boatHit.collider != null)
                 {

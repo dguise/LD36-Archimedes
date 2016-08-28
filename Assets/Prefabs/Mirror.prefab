@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402250}
   - 58: {fileID: 5821790}
+  - 61: {fileID: 6156496}
   m_Layer: 2
   m_Name: ControlArea
   m_TagString: Mirror
@@ -40,7 +41,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 482776}
-  - 65: {fileID: 6504446}
+  - 50: {fileID: 5096940}
+  - 61: {fileID: 6169532}
   m_Layer: 9
   m_Name: Mirror
   m_TagString: Mirror
@@ -89,6 +91,23 @@ Transform:
   - {fileID: 402250}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5096940
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165462}
+  m_UseAutoMass: 0
+  m_Mass: 40
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 3
 --- !u!58 &5821790
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -103,18 +122,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
---- !u!65 &6504446
-BoxCollider:
+--- !u!61 &6156496
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108368}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0.79}
+  serializedVersion: 2
+  m_Size: {x: 0.17, y: 1.61}
+--- !u!61 &6169532
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165462}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.22, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.53, y: 0.29}
 --- !u!212 &21204858
 SpriteRenderer:
   m_ObjectHideFlags: 1
