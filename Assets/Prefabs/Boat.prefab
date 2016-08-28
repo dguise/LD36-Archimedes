@@ -526,6 +526,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1000011939651832}
   canvas_bar: {fileID: 1000012201267598}
+  arrow: {fileID: 1000011419146688, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+  shoot_delay: 3
   sound_sink: {fileID: 82000012815332740}
   sound_shoot: {fileID: 82000012476313452}
 --- !u!114 &114000014291995690

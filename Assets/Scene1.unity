@@ -328,6 +328,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010960519814, guid: b8104411acb345144b421c7f2cbb8677,
     type: 2}
   m_PrefabInternal: {fileID: 553392189}
+--- !u!1001 &663091764
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000011178696552, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011178696552, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011178696552, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011178696552, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011178696552, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011178696552, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011178696552, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011178696552, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 28f521e78728bf44487a2cd6905416a5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &739767930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1047,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 81006e60a14ea7d4ea45bd2c555f4910, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ba9bb306a257ee4fa659c8eb983bc49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

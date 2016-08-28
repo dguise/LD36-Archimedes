@@ -10,7 +10,10 @@ public class Boat : MonoBehaviour
     private float Hp_start = 100f;
     public GameObject healthbar;
     public GameObject canvas_bar;
+    public GameObject arrow;
     private bool show_bar = false;
+    public float shoot_delay = 3;
+    private float shoot_delay_timer = 0;
 
     private float _cooldownDmg = 0.5f;
     private float _timeStamp = 0;
@@ -25,6 +28,17 @@ public class Boat : MonoBehaviour
     {
         
 
+    }
+
+    void FixedUpdate()
+    {
+        if (shoot_delay_timer > 0) shoot_delay_timer -= Time.fixedDeltaTime;
+        if(!_sailForward && shoot_delay_timer<=0)
+        {
+            Instantiate(arrow, transform.position, Quaternion.Euler(0,0,-90));
+            shoot_delay_timer = shoot_delay;
+        }
+            
     }
 	
 	// Update is called once per frame
