@@ -140,6 +140,7 @@ GameObject:
   - 114: {fileID: 114000014112830116}
   - 50: {fileID: 50000013889719114}
   - 60: {fileID: 60000011133256962}
+  - 222: {fileID: 222000013860156910}
   m_Layer: 8
   m_Name: Boat
   m_TagString: Boat
@@ -180,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014013455206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.972956, y: -2.4522603, z: 0}
+  m_LocalPosition: {x: -4.9880304, y: -1.9458184, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -524,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1000011939651832}
+  canvas_bar: {fileID: 1000012201267598}
   sound_sink: {fileID: 82000012815332740}
   sound_shoot: {fileID: 82000012476313452}
 --- !u!114 &114000014291995690
@@ -593,6 +595,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011419360734}
+--- !u!222 &222000013860156910
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014013455206}
 --- !u!223 &223000013694671934
 Canvas:
   m_ObjectHideFlags: 1

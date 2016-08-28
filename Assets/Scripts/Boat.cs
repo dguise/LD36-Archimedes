@@ -9,6 +9,8 @@ public class Boat : MonoBehaviour
     private float Hp = 100f;
     private float Hp_start = 100f;
     public GameObject healthbar;
+    public GameObject canvas_bar;
+    private bool show_bar = false;
 
     private float _cooldownDmg = 0.5f;
     private float _timeStamp = 0;
@@ -43,6 +45,10 @@ public class Boat : MonoBehaviour
 
         //check if should be removed
         if(Hp<=0 && !sound_sink.isPlaying) Destroy(gameObject, 1);
+
+        if (Hp<Hp_start) show_bar = true; else show_bar = false;
+        if(show_bar) canvas_bar.transform.position=new Vector3(canvas_bar.transform.position.x, canvas_bar.transform.position.y,0);
+        else canvas_bar.transform.position = new Vector3(canvas_bar.transform.position.x, canvas_bar.transform.position.y, 3);
     }
 
 
