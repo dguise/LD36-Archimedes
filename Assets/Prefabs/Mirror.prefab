@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010899355204}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: 7, y: 3.78, z: 0}
+  m_LocalPosition: {x: 7, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_Children:
@@ -351,12 +351,17 @@ MonoBehaviour:
   beam: {fileID: 1000011992812052}
   beam_damage: 10
   spriteRend: {fileID: 1000010691952058}
-  focus1: {fileID: 21300000, guid: 3962b24607bd5e847a2a8cb5138362be, type: 3}
-  focus2: {fileID: 21300002, guid: 3962b24607bd5e847a2a8cb5138362be, type: 3}
-  focus3: {fileID: 21300004, guid: 3962b24607bd5e847a2a8cb5138362be, type: 3}
-  focus4: {fileID: 21300006, guid: 3962b24607bd5e847a2a8cb5138362be, type: 3}
+  focus1: {fileID: 21300000, guid: fa60549a4bfc7f1458790c8c5a34a5d2, type: 3}
+  focus2: {fileID: 21300002, guid: fa60549a4bfc7f1458790c8c5a34a5d2, type: 3}
+  focus3: {fileID: 21300004, guid: fa60549a4bfc7f1458790c8c5a34a5d2, type: 3}
+  focus4: {fileID: 21300006, guid: fa60549a4bfc7f1458790c8c5a34a5d2, type: 3}
   mirror_broken: {fileID: 21300000, guid: 9de01af04ed6fc9418503472455e2500, type: 3}
   is_destroyed: 0
+  tempval: 0.1
+  beam_range_limits:
+  - 4
+  - 7
+  - 9
 --- !u!114 &114000012796607764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,7 +488,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3962b24607bd5e847a2a8cb5138362be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa60549a4bfc7f1458790c8c5a34a5d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

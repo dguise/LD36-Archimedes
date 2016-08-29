@@ -107,7 +107,6 @@ namespace Assets.Scripts
 
 
         void OnTriggerEnter2D(Collider2D col)
-        //void OnTriggerStay(Collider2D col)
         {
             if (col.tag == "MirrorControlArea")
             {
@@ -118,6 +117,18 @@ namespace Assets.Scripts
                     _mirrorArea = true;
             }
         }
+
+        /*void OnTriggerStay(Collider2D col)
+        {
+            if (col.tag == "MirrorControlArea")
+            {
+                _currMirror = col.transform.parent.gameObject;
+
+                //mirror must not be destroyed
+                if (!_currMirror.GetComponent<mirrorscript>().is_destroyed)
+                    _mirrorArea = true;
+            }
+        }*/
 
         void OnTriggerExit2D(Collider2D col)
         {

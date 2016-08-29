@@ -23,6 +23,8 @@ public class mirrorscript : MonoBehaviour {
     public Sprite focus4;
     public Sprite mirror_broken;
     public bool is_destroyed = false;
+    //public float tempval = 0.1f;
+    public float[] beam_range_limits = { 4, 7, 9 };
 
     // Use this for initialization
     void Start ()
@@ -68,7 +70,14 @@ public class mirrorscript : MonoBehaviour {
         else canvas_bar.transform.position = new Vector3(canvas_bar.transform.position.x, canvas_bar.transform.position.y, 3);
         //if (show_bar) Debug.Log("truee"); else Debug.Log("falsee");
 
-        beam.transform.localScale = new Vector3((m_range*0.87f) / 3, 1, 1);
+        //move and scale beam
+        beam.transform.localScale = new Vector3((m_range * 0.87f) / 3, 1, 1);
+        if      (m_range < beam_range_limits[0]) beam.transform.localPosition = new Vector2(0, -0.45f);
+        else if (m_range < beam_range_limits[1]) beam.transform.localPosition = new Vector2(0, -0.32f);
+        else if (m_range < beam_range_limits[2]) beam.transform.localPosition = new Vector2(0, -0.20f);
+        else                                     beam.transform.localPosition = new Vector2(0, -0.05f);
+        //beam.transform.localPosition = new Vector2( 0, -tempval * m_range);
+        //beam.transform.Position
 
         //if(!show_bar) transform.position= new Vector3(transform.position.x, transform.position.y, 3);
 
@@ -89,9 +98,9 @@ public class mirrorscript : MonoBehaviour {
         }
 
         //focus anim state
-        if(m_range<4) spriteRend.GetComponent<SpriteRenderer>().sprite = focus4;
-        else if (m_range < 7) spriteRend.GetComponent<SpriteRenderer>().sprite = focus3;
-        else if (m_range < 9) spriteRend.GetComponent<SpriteRenderer>().sprite = focus2;
+        if(m_range< beam_range_limits[0]) spriteRend.GetComponent<SpriteRenderer>().sprite = focus4;
+        else if (m_range < beam_range_limits[1]) spriteRend.GetComponent<SpriteRenderer>().sprite = focus3;
+        else if (m_range < beam_range_limits[2]) spriteRend.GetComponent<SpriteRenderer>().sprite = focus2;
         else spriteRend.GetComponent<SpriteRenderer>().sprite = focus1;
 
 
