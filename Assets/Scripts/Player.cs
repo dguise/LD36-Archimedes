@@ -14,6 +14,7 @@ namespace Assets.Scripts
         public bool _lockedToMirror = false;
         private Rigidbody2D _rb;
         public float Speed;
+        public GameObject levelmanagern;
 
         public Animator _animator;
         void Start()
@@ -24,6 +25,9 @@ namespace Assets.Scripts
 
         void Update()
         {
+            if (levelmanagern.GetComponent<Assets.Scripts.LevelManager>().game_state!=1)
+                return;
+
             var x = Input.GetAxis("Horizontal") * Time.deltaTime * Speed;
             var y = Input.GetAxis("Vertical") * Time.deltaTime * Speed;
 
