@@ -28,11 +28,12 @@ public class Boat : MonoBehaviour
     public AudioSource sound_shoot;
     public AudioSource sound_burn;
 
-    // Use this for initialization
-    void Start () 
-    {
-        
 
+    private Animator _animator;
+    // Use this for initialization
+    void Start ()
+    {
+        _animator = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
@@ -75,7 +76,7 @@ public class Boat : MonoBehaviour
 	    }
 
         //check if should be removed
-        if(Hp<=0 && !sound_sink.isPlaying) Destroy(gameObject, 1);
+        if(Hp<=0 && !sound_sink.isPlaying) Destroy(gameObject);
 
         if (Hp<Hp_start) show_bar = true; else show_bar = false;
         if(show_bar) canvas_bar.transform.position=new Vector3(canvas_bar.transform.position.x, canvas_bar.transform.position.y,0);
@@ -94,11 +95,6 @@ public class Boat : MonoBehaviour
 
     public void Hurt(float dmg)
     {
-        /*if (_timeStamp >= Time.time)
-        {
-            return;
-        }
-        _timeStamp = Time.time + _cooldownDmg;*/
         if (Hp <= 0) return;
 
         Hp -= dmg * burn_temp;
@@ -107,6 +103,11 @@ public class Boat : MonoBehaviour
         {
             //play sound
             sound_sink.Play();
+
+            //play animation
+            _animator.SetBool("Dead", true);
+
+            show_bar = false;
 
             Hp = 0;
             _sailForward = false;
