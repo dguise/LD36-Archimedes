@@ -6,11 +6,17 @@ public class arrowscript : MonoBehaviour
 
     float lifeleft = 10;
     public float arrow_speed = 1;
+    public GameObject m_manager;
 
     // Use this for initialization
     void Start()
     {
-
+        GameObject[] managers;
+        managers = GameObject.FindGameObjectsWithTag("EditorOnly");
+        foreach(GameObject manager in managers)
+        {
+            m_manager = manager;
+        }
     }
 
     void FixedUpdate()
@@ -34,6 +40,13 @@ public class arrowscript : MonoBehaviour
 
             Destroy(gameObject);
 
+        }
+
+        if (col.tag == "Player")
+        {
+
+            //end game
+            m_manager.GetComponent<Assets.Scripts.LevelManager>().gameover_call();
         }
     }
 }

@@ -108,6 +108,10 @@ public class mirrorscript : MonoBehaviour {
 
     void Hurt(float dmg)
     {
+        //play sound
+        if(!GetComponent<AudioSource>().isPlaying)
+         GetComponent<AudioSource>().Play();
+
         if (is_destroyed) return;
 
         Hp -= dmg;

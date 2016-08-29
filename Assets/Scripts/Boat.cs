@@ -43,6 +43,9 @@ public class Boat : MonoBehaviour
         {
             Instantiate(arrow, transform.position, Quaternion.Euler(0,0,-90));
             shoot_delay_timer = shoot_delay;
+
+            //play sound
+            sound_shoot.Play();
         }
 
         if(burn_temp>0)
