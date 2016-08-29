@@ -81,7 +81,7 @@ public class Boat : MonoBehaviour
         //check if should be removed
         if(Hp<=0 && !sound_sink.isPlaying) Destroy(gameObject);
 
-        if (Hp<Hp_start) show_bar = true; else show_bar = false;
+        if (Hp<Hp_start && Hp > 0) show_bar = true; else show_bar = false;
         if(show_bar) canvas_bar.transform.position=new Vector3(canvas_bar.transform.position.x, canvas_bar.transform.position.y,0);
         else canvas_bar.transform.position = new Vector3(canvas_bar.transform.position.x, canvas_bar.transform.position.y, 3);
     }
@@ -109,8 +109,6 @@ public class Boat : MonoBehaviour
 
             //play animation
             _animator.SetBool("Dead", true);
-
-            show_bar = false;
 
             Hp = 0;
             _sailForward = false;

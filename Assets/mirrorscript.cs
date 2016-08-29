@@ -26,11 +26,17 @@ public class mirrorscript : MonoBehaviour {
     //public float tempval = 0.1f;
     public float[] beam_range_limits = { 4, 7, 9 };
 
+    public GameObject burnParticle;
+    private GameObject _burnParticle;
+    private ParticleSystem _burnParticleSystem;
+
+    private bool boatFound = false;
+
     // Use this for initialization
     void Start ()
     {
-        
-
+        _burnParticle = Instantiate(burnParticle);
+        _burnParticleSystem = _burnParticle.GetComponent<ParticleSystem>();
     }
 
     void FixedUpdate()
@@ -43,20 +49,32 @@ public class mirrorscript : MonoBehaviour {
         float beam_x = Mathf.Cos(Mathf.Deg2Rad * (transform.rotation.eulerAngles.z-90)) * m_range + transform.position.x;
         float beam_y = Mathf.Sin(Mathf.Deg2Rad * (transform.rotation.eulerAngles.z-90)) * m_range + transform.position.y;
         //damage with beam
+
         GameObject[] boats;
         boats = GameObject.FindGameObjectsWithTag("Boat");
         foreach (GameObject boat in boats)
         {
             float dist = Vector2.Distance(boat.transform.position, new Vector2(beam_x, beam_y));
-            if (Mathf.Abs(boat.transform.position.x- beam_x-0.2f) <= boat_size_x && Mathf.Abs(boat.transform.position.y - beam_y) <= boat_size_y)
+            if (Mathf.Abs(boat.transform.position.x - beam_x - 0.2f) <= boat_size_x && Mathf.Abs(boat.transform.position.y - beam_y) <= boat_size_y)
             {
-                boat.GetComponent<Boat>().Hurt(beam_damage * Time.fixedDeltaTime);
+                boatFound = true;
+                _burnParticle.transform.position = new Vector3(beam_x, beam_y, -2);
+                if (!_burnParticleSystem.isPlaying)
+                {
+                    _burnParticleSystem.Play();
+                }
+
+                boat.GetComponent<Boat>().Hurt(beam_damage*Time.fixedDeltaTime);
                 Debug.DrawLine(boat.transform.position, new Vector2(beam_x, beam_y), Color.blue);
             }
 
-            Debug.DrawLine(transform.position, new Vector2(beam_x, beam_y), Color.red);
-            
+            Debug.DrawLine(transform.position, new Vector2(beam_x, beam_y), Color.red);   
         }
+        if (!boatFound)
+        {
+            _burnParticleSystem.Stop();
+        }
+        boatFound = false;      
     }
 	
 	// Update is called once per frame

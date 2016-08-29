@@ -436,6 +436,8 @@ MonoBehaviour:
   - 4
   - 7
   - 9
+  burnParticle: {fileID: 1000010698211688, guid: e729a4b88b5d2ba4cb9eafadd6a22a91,
+    type: 2}
 --- !u!114 &114000012796607764
 MonoBehaviour:
   m_ObjectHideFlags: 1
