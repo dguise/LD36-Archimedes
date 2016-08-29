@@ -118,10 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.1
-  Range: 10
-  mir1: {fileID: 1292673460}
-  mir2: {fileID: 0}
-  mir3: {fileID: 0}
 --- !u!4 &35033663
 Transform:
   m_ObjectHideFlags: 0
@@ -235,10 +231,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1000010899355204, guid: b8104411acb345144b421c7f2cbb8677, type: 2}
-      propertyPath: m_Name
-      value: Mirror
-      objectReference: {fileID: 0}
+    - target: {fileID: 114000012690358966, guid: b8104411acb345144b421c7f2cbb8677,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 739767930}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8104411acb345144b421c7f2cbb8677, type: 2}
   m_IsPrefabParent: 0
@@ -389,7 +386,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148c7f4bc516e974b8ac1251869e4429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mirrorArea: 0
+  _currMirror: {fileID: 0}
+  _lockedToMirror: 0
   Speed: 500
+  _animator: {fileID: 0}
 --- !u!50 &739767934
 Rigidbody2D:
   serializedVersion: 2
@@ -558,10 +559,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1000010899355204, guid: b8104411acb345144b421c7f2cbb8677, type: 2}
-      propertyPath: m_Name
-      value: Mirror
-      objectReference: {fileID: 0}
+    - target: {fileID: 114000012690358966, guid: b8104411acb345144b421c7f2cbb8677,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 739767930}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8104411acb345144b421c7f2cbb8677, type: 2}
   m_IsPrefabParent: 0
@@ -771,11 +773,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &1292673460 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010899355204, guid: b8104411acb345144b421c7f2cbb8677,
-    type: 2}
-  m_PrefabInternal: {fileID: 553392189}
 --- !u!1 &1442310645
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +809,7 @@ MonoBehaviour:
   lista: []
   boat_pos: 
   level: 1
+  total_levels: 5
 --- !u!4 &1442310647
 Transform:
   m_ObjectHideFlags: 0

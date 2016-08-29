@@ -21,6 +21,8 @@ public class barscript : MonoBehaviour {
     void LateUpdate()
     {
         transform.rotation = Quaternion.identity;
-        transform.position = startpos;
+        float z = transform.position.z;
+        //transform.position = startpos;
+        transform.position = new Vector3(startpos.x, startpos.y,z);
     }
 }

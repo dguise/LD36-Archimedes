@@ -8,35 +8,38 @@ namespace Assets.Scripts
 
         private GameObject[] mirrors;
         public float Speed = 1f;
-        public float Range = 100;
+        //public float Range = 100;
 
         private float _timeStamp = 0f;
         private float _cooldownDmg = 2f;
 
 
         // Use this for initialization
-        void Start () {
+        void Start ()
+        {
             mirrors = GameObject.FindGameObjectsWithTag("Mirror");
         }
 	
         // Update is called once per frame
         void Update ()
         {
-            foreach(GameObject mirror in mirrors)
+            /*foreach(GameObject mirror in mirrors)
             {
                 if (mirror != null)
                 {
-                    mirrorscript mirrScript = mirror.GetComponent<mirrorscript>();
-                    float range = mirrScript.m_range;
+                    //mirrorscript mirrScript = mirror.GetComponent<mirrorscript>();
+                    //float range = mirrScript.m_range;
+                    float range = mirror.GetComponent<mirrorscript>().m_range;
+                    //Debug.Log(range);
                     RaycastBeam(gameObject.transform.position, mirror.transform.position, mirror.transform.rotation, range);
                 }
                 
             }
-            transform.position = transform.position + Vector3.down * Time.deltaTime * Speed;
+            transform.position = transform.position + Vector3.down * Time.deltaTime * Speed;*/
 
         }
 
-        void RaycastBeam(Vector2 sunPos, Vector2 mirrorPos, Quaternion mirrorAngle, float range)
+        /*void RaycastBeam(Vector2 sunPos, Vector2 mirrorPos, Quaternion mirrorAngle, float range)
         {
             
             Vector3 direction = mirrorPos - sunPos;
@@ -72,7 +75,7 @@ namespace Assets.Scripts
             }
 
             Debug.DrawLine(sunPos, mirrorPos, Color.green);
-        }
+        }*/
 
 
     }

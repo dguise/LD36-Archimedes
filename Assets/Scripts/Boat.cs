@@ -6,7 +6,7 @@ using UnityStandardAssets.Utility;
 
 public class Boat : MonoBehaviour
 {
-    private float Speed = 1f;
+    public float Speed = 1f;
     private float Hp = 100f;
     private float Hp_start = 100f;
     public GameObject healthbar;
@@ -18,11 +18,15 @@ public class Boat : MonoBehaviour
     private bool shouldShoot = false;
     private float _cooldownDmg = 0.2f;
     private float _timeStamp = 0;
+    public float burn_speed = 1000;
+    public float cool_speed = 1;
 
     private bool _sailForward = true;
+    public float burn_temp=0;
 
     public AudioSource sound_sink;
     public AudioSource sound_shoot;
+    public AudioSource sound_burn;
 
     // Use this for initialization
     void Start () 
@@ -39,7 +43,20 @@ public class Boat : MonoBehaviour
             Instantiate(arrow, transform.position, Quaternion.Euler(0,0,-90));
             shoot_delay_timer = shoot_delay;
         }
-            
+
+        if(burn_temp>0)
+        {
+            burn_temp-= Time.fixedDeltaTime * cool_speed;
+            if (burn_temp < 0) burn_temp = 0;
+
+            //continue burn sound
+            if (!sound_burn.isPlaying)
+            {
+                sound_burn.Play();
+            }
+        }
+        sound_burn.volume = burn_temp;
+
     }
 	
 	// Update is called once per frame
@@ -75,16 +92,16 @@ public class Boat : MonoBehaviour
         }
     }
 
-    void Hurt(float dmg)
+    public void Hurt(float dmg)
     {
-        if (_timeStamp >= Time.time)
+        /*if (_timeStamp >= Time.time)
         {
             return;
         }
-        _timeStamp = Time.time + _cooldownDmg;
+        _timeStamp = Time.time + _cooldownDmg;*/
         if (Hp <= 0) return;
 
-        Hp -= dmg;
+        Hp -= dmg * burn_temp;
 
         if (Hp <= 0)
         {
@@ -95,6 +112,18 @@ public class Boat : MonoBehaviour
             _sailForward = false;
             shouldShoot = false;
         }
+
+        //increment burn factor
+        burn_temp += Time.fixedDeltaTime* burn_speed;
+        if (burn_temp > 1) burn_temp = 1;
+
+        //play burn sound
+        sound_burn.volume = burn_temp;
+        if (!sound_burn.isPlaying)
+        {
+            sound_burn.Play();
+        }
+        //Debug.Log(burn_temp);
 
         //update bar
         healthbar.transform.localScale = new Vector3(Hp / Hp_start, healthbar.transform.localScale.y, healthbar.transform.localScale.z);
